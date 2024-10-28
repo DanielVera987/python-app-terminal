@@ -1,7 +1,8 @@
 from Repository.ProductRepository import ProductRepository
 from Common.Constant import Constant
+from Service.IService import IService
 
-class ProductService:
+class ProductService(IService):
     def __init__(self):
         self.repository = ProductRepository()
 
