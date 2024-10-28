@@ -2,7 +2,7 @@ import requests as req
 import json
 from config import URL_ENDPOINT
 
-from Resposity.IRepository import IRepository
+from Repository.IRepository import IRepository
 from Common.Constant import Constant
 from Common.Exception.NotFoundException import NotFoundException
 

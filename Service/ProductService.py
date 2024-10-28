@@ -1,4 +1,4 @@
-from Resposity.ProductRepository import ProductRepository
+from Repository.ProductRepository import ProductRepository
 
 class ProductService:
     def __init__(self):
