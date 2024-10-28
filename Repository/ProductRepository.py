@@ -13,7 +13,7 @@ class ProductRepository(IRepository):
     def getAll(self):
         res = req.get(self.URL)
 
-        if (res.status_code == 200):
+        if (res.ok):
             return json.loads(res.content)
         else:
             return None
@@ -21,9 +21,9 @@ class ProductRepository(IRepository):
     def getById(self, id = None):
         if (id):
             try:
-                res = req.get(self.URL + str(id))
+                res = req.get(self.URL + "/" + str(id))
 
-                if (req.status_codes == Constant.OK):
+                if (res.ok):
                     return json.loads(res.content)
                 else:
                     return False
@@ -35,9 +35,9 @@ class ProductRepository(IRepository):
     def create(self, data = None):
         if (data):
             try:
-                created = req.post(self.URL, data)
+                created = req.post(self.URL, json.dumps(data))
 
-                if (created == Constant.OK):
+                if (created.ok):
                     return json.loads(created.content)
                 else:
                     return False
@@ -52,9 +52,9 @@ class ProductRepository(IRepository):
                 product = self.getById(id)
 
                 if (product):
-                    update = req.put(self.URL + str(id), data)
+                    update = req.put(self.URL + "/" + str(id), data)
                     
-                    if (update.status_code == Constant.OK):
+                    if (update.ok):
                         return json.loads(update.content)
                     else:
                         return False
@@ -66,17 +66,12 @@ class ProductRepository(IRepository):
             return False
 
     def delete(self, id):
-        if (id):
+        if (id and isinstance(id, (int, float))):
             try:
-                product = self.getById(id)
+                deleted = req.delete(self.URL + '/' + str(id))
 
-                if (product):
-                    deleted = req.delete(self.URL + str(id))
-
-                    if (deleted.status_code == Constant.OK):
-                        return json.loads(deleted.content)
-                    else:
-                        return False
+                if (deleted.ok):
+                    return json.loads(deleted.content)
                 else:
                     return False
             except Exception:

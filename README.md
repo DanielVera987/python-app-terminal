@@ -10,7 +10,7 @@ You can search for products by their related categories.
 The free in-app API: https://fakestoreapi.com
 
 TODO:
-- [ ] Add CRUD Product
+- [X] Add CRUD Product
 - [ ] Add CRUD Categories
 - [ ] Create terminal view
 - [ ] Create factory for instance depending option of user
