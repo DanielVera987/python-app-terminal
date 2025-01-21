@@ -11,7 +11,6 @@ The free in-app API: https://fakestoreapi.com
 
 TODO:
 - [X] Add CRUD Product
-- [ ] Add CRUD Categories
 - [ ] Create terminal view
 - [ ] Create factory for instance depending option of user
 - [ ] Add docker

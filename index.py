@@ -1,12 +1,10 @@
 from Controller.ProductController import ProductController
-
-productNew = {
-    "title": 'test product',
-    "price": 13.5,
-    "description": 'lorem ipsum set',
-    "image": 'https://i.pravatar.cc',
-    "category": 'electronic'
-}
+from Core.index import Core
 
 product = ProductController()
-print(product.delete(1))
+app = Core(product)
+
+option = 1
+while option != 0:
+    option = input("Elige una opción: ")
+    app.init(option)
